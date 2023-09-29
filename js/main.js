@@ -6,14 +6,15 @@ while(!registro) {
     registro = confirm("¿Ya te registraste?");
 }
 
-// Elegir que comprar de la tienda -- El toUpper es para que en el switch se escriba todo en mayuscula
-let producto = prompt("¿Que producto desea adquirir? (Camiseta, Botines o Guantes)").toUpperCase();
-let confirmacion = false;
-
-// Variables de costos
-let precio = 0;
-let adicional = 0;
-let final = 0;
+// Objeto para el producto
+class Producto {
+    constructor(nombre,precio,preciofinal,cantidad) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.preciofinal = preciofinal;
+        this.cantidad = cantidad;
+    }
+}
 
 // Variables para calculo
 let a = 0;
@@ -21,129 +22,153 @@ let monto = 0;
 let b = 0;
 let precioFinal = 0;
 
-switch (producto) {
-    // En caso de que el valor inicial no sea correcto, se comunica que el producto no esta disponible
-    default:
-        console.log("No tenemos ese producto disponible")
+// Agregar productos
+
+var arrayAddProductos = [];
+do {
+    var check = prompt("Ingresa el nombre del producto. ('Listo' para terminar de agregar)").toUpperCase();
+    if (check == 'LISTO') {
         break;
-    case 'CAMISETA':
-        console.log("La camiseta cuesta $50.000");
-        confirmacion = confirm("¿Estas seguro que quieres seguir con la compra?");
-        if(confirmacion != 0)
-        {
-            precio += 50000;
+    }
+    else{
+        NombreProducto = check;
+        let PrecioProducto = prompt("Ingrese un precio para el producto");
+        PrecioFinal = calculoAdicional(PrecioProducto);
+        var CantidadProducto = prompt("Ingrese el Stock del producto");  
 
-            // Asigno a variables los resultados para despeus imprimirlos o aplicar desuento.
-            adicional = calculoAdicional(precio);
-            final = calculoPrecioFinal(precio, adicional);
-
-            console.log("Precio del Producto: ", precio);
-            console.log("Adicional por servicio: ", adicional);
-            console.log("Precio final: ", final)
-            break;
-        }
-        else {
-            console.log("Gracias por visitarnos.")
-            break;
-        }
-    case 'BOTINES':
-        console.log("Los botines cuestan $80.000");
-        confirmacion = confirm("¿Estas seguro que quieres seguir con la compra?");
-        if(confirmacion != 0)
-        {
-            precio += 80000;
-
-            // Asigno a variables los resultados para despeus imprimirlos o aplicar desuento.
-            adicional = calculoAdicional(precio);
-            final = calculoPrecioFinal(precio, adicional);
-
-            console.log("Precio del Producto: ", precio);
-            console.log("Adicional por servicio: ", adicional);
-            console.log("Precio final: ", final)
-            break;
-        }
-        else {
-            console.log("Gracias por visitarnos.")
-            break;
-        }
-    case 'GUANTES':
-        console.log("Los guantes cuestan $20.000");
-        confirmacion = confirm("¿Estas seguro que quieres seguir con la compra?");
-        if(confirmacion != 0)
-        {
-            precio += 20000;
-
-            // Asigno a variables los resultados para despeus imprimirlos o aplicar desuento.
-            adicional = calculoAdicional(precio);
-            final = calculoPrecioFinal(precio, adicional);
-
-            console.log("Precio del Producto: ", precio);
-            console.log("Adicional por servicio: ", adicional);
-            console.log("Precio final: ", final);
-            break;
-        }
-        else {
-            console.log("Gracias por visitarnos.")
-            break;
-        }  
+        console.log("Nombre de producto: " + NombreProducto);
+        console.log("Precio del Producto: $" + PrecioProducto);
+        console.log("Precio Final: $" + PrecioFinal);
+        console.log("Cantidad: " + CantidadProducto);
+        // Pusheamos todo al array
+        arrayAddProductos.push(new Producto(NombreProducto, PrecioProducto, PrecioFinal, CantidadProducto));
+    }
 }
 
-// CUPONES --> MESSI = 50%, FORESSI = 30%, PRIMAVERA = 10%
-let check = confirm("¿Tenes algun cupon descuento para aplicar?")
+// Imprimimos la lista de productos
+while (check != 'LISTO')
+console.log(arrayAddProductos);
 
-// Variables para calculos del descuento
+// Printeamos en el HTML los productos
+for (var producto of arrayAddProductos) {
+    document.write("<h3>Nombre: "+ producto.nombre +"</h3>");
+    console.log(Producto.nombre);
+    document.write("<ul><li><h3>Precio: $"+ producto.precio +"</h3></li>");
+    console.log(Producto.precio);
+    document.write("<li><h3>Precio Final: $"+ producto.preciofinal +"</h3></li>");
+    console.log(Producto.preciofinal);
+    document.write("<li><h3>Cantidad: "+ producto.cantidad +" Unidad(es)</h3></li></ul>");
+    console.log(Producto.cantidad);
+}
+
+// Sin stock -- Basicamente cantidad = 0
+var SinStock = arrayAddProductos.filter(producto => producto.cantidad == 0 );
+console.log(SinStock);
+document.write("<h2 class='titulo-nombre-ss'>Productos sin Stock: </h2>");
+for (var producto of SinStock) {
+    document.write("<h3>Nombre: "+ producto.nombre +"</h3>");
+    document.write("<ul><li><h3>Precio: $"+ producto.precio +"</h3></li>");
+    document.write("<li><h3>Precio Final: $"+ producto.preciofinal +"</h3></li></ul>");
+    // document.write("<li><h3>Cantidad: "+ producto.cantidad +" Unidad(es)</h3></li></ul>");
+}
+
+// Ordenados por Precio 
+var OrdenPrecio = [];
+OrdenPrecio = arrayAddProductos.map(items => items);
+var OrdenPrecio = arrayAddProductos;
+OrdenPrecio.sort(function(a, b) {
+    return a.precio - b.precio;
+});
+console.log(OrdenPrecio);
+document.write("<h2 class='titulo-nombre-op'>Productos ordenados por Precio: </h2>");
+for (var producto of OrdenPrecio) {
+    document.write("<h3>Nombre: "+ producto.nombre +"</h3>");
+    document.write("<ul><li><h3>Precio: $"+ producto.precio +"</h3></li>");
+    document.write("<li><h3>Precio Final: $"+ producto.preciofinal +"</h3></li>");
+    document.write("<li><h3>Cantidad: "+ producto.cantidad +" Unidad(es)</h3></li></ul>");
+}
+
+// Busqueta de un Producto
+var busqueda = prompt("Ingrese el producto que quiere Comprar: ").toUpperCase();
+var BuscarProducto = arrayAddProductos.filter(producto => producto.nombre.includes(busqueda));
+console.log(BuscarProducto);
+document.write("<h2 class='titulo-nombre-bp'>Carrito de Compra: </h2>");
+
 let messi = 0.50;
 let foressi = 0.30;
 let primavera = 0.10;
 let descuento = 0;
 
-if(check != 0) {
+for (var producto of BuscarProducto) {
     // CUPONES --> MESSI = 50%, FORESSI = 30%, PRIMAVERA = 10%
-    cupon = prompt("Ingresa el cupon aca abajo").toUpperCase();
-    switch(cupon){
-    // En caso de que el valor inicial no sea correcto, se comunica que el producto no esta disponible
-        case 'MESSI':
-            console.log("Felicidades! Cupon del 50% aplicado");
-            descuento = calculoDescuento(final, messi);
-            console.log("Precio Total tras aplicar el descuento es de: ", descuento);
-            break;
-        case 'FORESSI':
-            console.log("Felicidades! Cupon del 30% aplicado");
-            descuento = calculoDescuento(final, foressi);
-            console.log("Precio Total tras aplicar el descuento es de: ", descuento);
-            break;
-        case 'PRIMAVERA':
-            console.log("Felicidades! Cupon del 10% aplicado");
-            descuento = calculoDescuento(final, foressi);
-            console.log("Precio Total tras aplicar el descuento es de: ", descuento);
-            break;
+    let check = confirm("¿Tenes algun cupon descuento para aplicar?");
+    if(check != 0) {
+        // CUPONES --> MESSI = 50%, FORESSI = 30%, PRIMAVERA = 10%
+        cupon = prompt("Ingresa el cupon aca abajo").toUpperCase();
+        switch(cupon){
         // En caso de que el valor inicial no sea correcto, se comunica que el producto no esta disponible
-        default:
-            console.log("Cupon invalido, gracias por realizar la compra.")
-            break;
-    }
+            case 'MESSI':
+                console.log("Felicidades! Cupon del 50% aplicado");
+                descuento = calculoDescuento(producto.preciofinal, messi);
+                console.log("Precio Total tras aplicar el descuento es de: ", descuento);
 
-}else {
-    console.log("Muchas gracias por realizar la compra");
+                document.write("<h3>Nombre: "+ producto.nombre +"</h3>");
+                document.write("<ul><li><h3>Precio: $"+ producto.precio +"</h3></li>");
+                document.write("<li><h3>Precio Final: $"+ descuento +"</h3></li>");
+                document.write("<li><h3>Cantidad: "+ producto.cantidad +" Unidad(es)</h3></li></ul>");
+                break;
+            case 'FORESSI':
+                console.log("Felicidades! Cupon del 30% aplicado");
+                descuento = calculoDescuento(producto.preciofinal, foressi);
+                console.log("Precio Total tras aplicar el descuento es de: ", descuento);
+                
+                document.write("<h3>Nombre: "+ producto.nombre +"</h3>");
+                document.write("<ul><li><h3>Precio: $"+ producto.precio +"</h3></li>");
+                document.write("<li><h3>Precio Final: $"+ descuento +"</h3></li>");
+                document.write("<li><h3>Cantidad: "+ producto.cantidad +" Unidad(es)</h3></li></ul>");
+                break;
+            case 'PRIMAVERA':
+                console.log("Felicidades! Cupon del 10% aplicado");
+                descuento = calculoDescuento(producto.preciofinal, foressi);
+                console.log("Precio Total tras aplicar el descuento es de: ", descuento);
+                
+                document.write("<h3>Nombre: "+ producto.nombre +"</h3>");
+                document.write("<ul><li><h3>Precio: $"+ producto.precio +"</h3></li>");
+                document.write("<li><h3>Precio Final: $"+ descuento +"</h3></li>");
+                document.write("<li><h3>Cantidad: "+ producto.cantidad +" Unidad(es)</h3></li></ul>");
+                break;
+            // En caso de que el valor inicial no sea correcto, se comunica que el producto no esta disponible
+            default:
+                console.log("Cupon invalido, gracias por realizar la compra.")
+                break;
+        }
+    
+    }else {
+        document.write("<h3>Nombre: "+ producto.nombre +"</h3>");
+        document.write("<ul><li><h3>Precio: $"+ producto.precio +"</h3></li>");
+        document.write("<li><h3>Precio Final: $"+ producto.preciofinal +"</h3></li>");
+        document.write("<li><h3>Cantidad: "+ producto.cantidad +" Unidad(es)</h3></li></ul>");
+    }
 }
 
-// Funciones de calculo para el codigo
 
+
+// FUNCIONES
 function calculoAdicional(costo) {
+    let cuenta = 0;
+    let pasaje = 0;
     let resultado = 0;
     
     // Calculamos el 10% del producto
-    resultado = costo / 10;
+    cuenta = costo / 10;
+    // Pasamos el precio a numero
+    pasaje = costo * 1;
+
+    // Sumamos para el resultado final
+    resultado = pasaje + cuenta;
 
     // Devolvemos el resultado de la division
     return resultado;
-}
-
-function calculoPrecioFinal(pfinal, a) {
-    // Calculamos el 10% para despues calcular el precio final
-    precioFinal = pfinal + a;
-
-    return precioFinal;
 }
 
 function calculoDescuento(monto, b) {
@@ -156,5 +181,3 @@ function calculoDescuento(monto, b) {
 
     return desc;
 }
-
-
