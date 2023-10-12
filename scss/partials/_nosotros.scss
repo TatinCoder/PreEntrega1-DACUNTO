@@ -1,0 +1,153 @@
+.nosotros {
+    background-image: url(../img/fondo-nosotros.jpg);
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    gap: 20px 100px;
+    padding: 50px 0px;
+
+    /* Grid */
+    grid-template-columns: repeat(4, 1fr);
+    grid-row: 1fr 1fr;
+    grid-template-areas: 
+    ". pregunta-1 inicios ."
+    ". pregunta-2 inicios .";
+}
+
+.pregunta-1 {
+    grid-area: pregunta-1;
+    color: azure;
+    background-color: #1f1f1fbb;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    width: 500px;
+    transition: 0.5s;
+
+    -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+	        animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+
+    h2 {
+        padding-bottom: 15px;
+    }
+
+    &:hover {
+        transform: skew(-2deg) scale(1.05);
+    }
+}
+
+.pregunta-2 {
+    grid-area: pregunta-2;
+    color: azure;
+    background-color: #1f1f1fbb;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    width: 500px;
+    transition: 0.5s;
+
+    -webkit-animation: slide-in-blurred-left 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+	        animation: slide-in-blurred-left 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+
+    h2 {
+        padding-bottom: 15px;
+    }
+    
+    &:hover {
+        transform: skew(2deg) scale(1.05);
+    }
+}
+
+
+
+.inicios {
+    grid-area: inicios;
+    position: relative;
+    width: 700px;
+    height: 500px;
+
+    -webkit-animation: flip-in-diag-2-tl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: flip-in-diag-2-tl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        object-fit: cover;
+    }
+
+    &:hover {
+        .titulo-inicios {
+            height: 100%;
+        }
+    }
+}
+
+.titulo-inicios {
+    background-color: #1f1f1fbe;
+    border-radius: 15px;
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+    transition: 0.5s;
+
+    h2 {
+        color: azure;
+        font-weight: 300;
+        font-size: 1rem;
+        padding-top: 5px; /* Correccion de texto para estar en la mitad */
+    }
+}
+
+.parrafo-inicios {
+    color: azure;
+    display: flex;
+    font-weight: 100;
+    /* Lo centro con padding porque no se como hacerlo */
+    padding: 100px 100px;
+}
+
+// OPINIONES 
+
+.opiniones {
+    background-color: #d0e0eb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 0px;
+
+    .participantes-op{
+        text-align: center;
+        padding-top: 20px;
+        width: 500px;
+    
+        .carousel-item {
+            padding: 30px 50px;
+            .parrafo-op {
+                font-style: italic;
+            }
+            .nombre-op{
+                padding: 5px;
+                font-size: 0.75rem;
+            }
+    
+            img {
+                object-fit: cover;
+                border-radius: 50%;
+                width: 70px;
+                height: 70px;
+            }
+        }
+    }    
+}

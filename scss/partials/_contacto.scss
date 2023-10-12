@@ -1,0 +1,67 @@
+.form-contacto {
+    /* Fondo de pantalla del primer scroll */
+    background-image: url(../img/contact-bkg.jpg);
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    padding: 50px 0px;
+
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+
+        h1{
+            font-size: 4vh;
+            font-weight: bold;
+            padding-bottom: 15px;
+        }
+        .cont-form {
+            background-color: #232323;
+            padding: 30px;
+            border-radius: 20px;
+            div {     
+                h2 {
+                    color: white;
+                    font-size: 3vh;
+                    font-weight: bold;
+                    padding-bottom: 15px;
+                    padding-top: 20px;
+                }
+                input {
+                    height: 50px;
+                    width: 300px;
+                    border-radius: 15px;
+                    text-align: center;
+                }
+
+                select {
+                    height: 50px;
+                    width: 80px;
+                    border-radius: 15px;
+                    text-align: center;
+                }
+                textarea {
+                    border-radius: 15px;
+                    text-align: left;
+                }
+            }
+        }
+
+        .usuariosform {
+            margin: 20px 0px;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #52e000;
+        }
+
+        .todosform {
+            margin: 20px 0px;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #54f1ca;
+        }
+    }
+}

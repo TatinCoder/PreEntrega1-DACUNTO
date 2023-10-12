@@ -1,0 +1,14 @@
+#tienda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+
+    .botonAgregar {
+        button{
+            margin: 30px 0px;
+            padding: 20px;
+        }
+    }
+}

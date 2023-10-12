@@ -1,0 +1,166 @@
+.ganadores{
+    background-color: #f1ecdf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 90px 0px;
+
+    .titulo-ganadores {
+        font-size: 4vh;
+        font-weight: bold;
+        padding-bottom: 10px;
+    }
+}
+
+.galeria-ganadores {
+    width: 800px;
+    height: 80%;
+    img {
+        width: 100%;
+        border-radius: 20px;
+    }
+}
+
+// Maximos Ganadores
+
+.max-win {
+    background-color: #d4c9ad;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0px;
+
+    .max-win-img {
+        width: 300px;
+        text-align: center;
+        transition: 0.8s;
+
+        h2{
+            font-size: 3.5vh;
+            font-weight: bold;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+    }
+    .max-win-img:hover {
+        transform: scale(1.1);
+    }
+
+    .min-win-img {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .min-win-tlt {
+            margin-bottom: 10px;
+
+            h2 {
+                font-size: 3.5vh;
+                font-weight: bold;
+            }
+        }
+
+        .min-win-conts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            div {
+                width: 120px;
+                height: 130px;
+                margin-bottom: 20px;
+                transition: 0.9s;
+
+                img {
+                    width: 100%;
+                    border-radius: 20px;
+                    height: 100%;
+                }
+
+                h3 {
+                    margin-top: 5px;
+                    font-size: small;
+                }
+            }
+            div:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+// Sucesos Historicos
+
+.suc-hist {
+    background-color: #c7ba99;
+    padding: 50px;
+    text-align: center;
+
+    h2 {
+        font-size: 4vh;
+        font-weight: bold;
+    }
+    .suc-cont {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+
+        .cont-tlt{
+            scale: 0.9;
+            transition: 1.5s;
+            div {
+                img{
+                    height: 600px;
+                    object-fit: cover;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    border-radius: 15px;
+                    box-shadow: 5px 5px 5px 2px rgba(29, 29, 29, 0.534);
+                }
+    
+                h2{
+                    margin-top: 10px;
+                    position: relative;
+                }
+                .tlt-suc {
+                    color: azure;
+                    background-color: #1f1f1fbe;
+                    position: absolute;
+                    overflow: hidden;
+                    text-align: center;
+                    height: 80px;
+                    border-radius: 10px;
+                    width: 100%;
+                    left: 0;
+                    bottom: 0;
+                    transition: 1.5s;
+                    p {
+                        padding: 20px 60px;
+                        font-size: 2.5vh;
+                    }
+                }
+            }
+            &:hover {
+                .tlt-suc {
+                    height: 100%;
+                }
+            }
+        }
+        .cont-tlt:hover { 
+            transform: scale(1.05);
+        }
+    }
+}

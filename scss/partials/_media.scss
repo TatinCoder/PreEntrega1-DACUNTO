@@ -1,0 +1,686 @@
+// INICIO 
+
+@media (max-width: 1300px) {
+    .introduccion {
+        flex-direction: column;
+        .noticias {
+            margin-top: 100px;
+           scale: 1.2;
+        }
+    }
+}
+
+
+@media (max-width: 800px){
+    .introduccion {
+        .ultimo-campeon {
+            width: 600px;
+            height: 500px;
+        }
+    }
+}
+
+@media (max-width: 600px){
+    .introduccion {
+        .ultimo-campeon {
+            width: 400px;
+            height: 500px;
+        }
+    }
+}
+
+@media (max-width: 400px){
+    .introduccion {
+        .noticias {
+            width: 170px;
+            .imagenes {
+                width: 130px;
+            }
+        }
+        .ultimo-campeon {
+            width: 200px;
+            height: 600px;
+        }
+    }
+}
+
+// UBICACION
+
+@media(max-width: 1300px) {
+    .ubicacion {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 600px) {
+    .ubicacion {
+        .mapa {
+            .gmaps {
+                width: 400px;
+            }
+        }
+    }
+}
+
+@media(max-width: 1300px) {
+    .ubicacion {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 600px) {
+    .ubicacion {
+        .mapa {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            .gmaps {
+                width: 400px;
+            }
+        }
+    }
+}
+
+@media(max-width: 400px) {
+    .ubicacion {
+        .mapa {
+            .titulo-mapa {
+                font-size: 2.5vh;
+            }
+            .gmaps {
+                width: 200px;
+            }
+        }
+        .mapa-texto {
+            width: 200px;
+        }
+    }
+}
+
+// VIDEOS
+
+@media(max-width: 1300px) {
+    .videos {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 600px) {
+    .videos {
+        .video-mun {
+            .video {
+                width: 400px;
+            }
+        }
+        .sorteo-chp {
+            .video {
+                width: 400px;
+            }
+        }
+    }
+}
+
+@media(max-width: 400px) {
+    .videos {
+        .video-mun {
+            .video {
+                width: 200px;
+            }
+        }
+        .sorteo-chp {
+            .video {
+                width: 200px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+// NOSOTROS 
+
+@media (max-width: 1500px) {
+    .nosotros {
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: repeat(1, 1fr);
+        grid-row: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "inicios"
+        "pregunta-1"
+        "pregunta-2";
+    }
+    
+}
+
+
+@media (max-width: 800px) {
+    .nosotros {
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: repeat(1, 1fr);
+        grid-row: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "inicios"
+        "pregunta-1"
+        "pregunta-2";
+    }
+
+    .inicios {
+        width: 500px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nosotros {
+       .pregunta-1 {
+        width: 400px;
+       }
+       .pregunta-2 {
+        width: 400px;
+       }
+    }
+    .inicios {
+        width: 400px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 400px) {
+    .nosotros {
+       .pregunta-1 {
+        width: 200px;
+       }
+       .pregunta-2 {
+        width: 200px;
+       }
+    }
+    .inicios {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+// OPINIONES 
+
+// No pongo mas media porque no hacen falta
+@media (max-width: 600px) {
+    .opiniones {
+        .participantes-op {
+            width: 400px;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .opiniones {
+        .participantes-op {
+            width: 200px;
+        }
+    }
+}
+
+
+
+
+// HISTORIA 
+
+// GALERIA 
+
+@media (max-width: 1024px) {
+    .galeria-ganadores {
+        width: 800px;
+        height: 80%;
+    }
+}
+
+@media (max-width: 800px) {
+    .galeria-ganadores {
+        width: 600px;
+    }
+}
+
+@media (max-width: 600px) {
+    .galeria-ganadores {
+        width: 400px;
+    }
+}
+
+@media (max-width: 400px) {
+    .ganadores {
+        .titulo-ganadores {
+            font-size: 2vh;
+        }
+    }
+    .galeria-ganadores {
+        width: 300px;
+    }
+}
+
+@media (max-width: 300px) {
+    .galeria-ganadores {
+        width: 200px;
+    }
+}
+
+// MAXIMOS GOLEADORES
+
+@media (max-width: 1024px) {
+    .max-win-img {
+       width: 300px;
+    }
+}
+
+@media (max-width: 800px) {
+    .max-win {
+        flex-direction: column;
+        .max-win-img {
+           width: 500px;
+        }
+
+        .min-win-img {
+            .min-win-conts {
+                div {
+                    width: 150px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .max-win {
+        flex-direction: column;
+        .max-win-img {
+           width: 300px;
+        }
+
+        .min-win-img {
+            .min-win-conts {
+                div {
+                    width: 100px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .max-win {
+        flex-direction: column;
+        .max-win-img {
+           width: 200px;
+
+           h2{
+            font-size: 2vh;
+           }
+        }
+
+        .min-win-img {
+            .min-win-tlt {
+                h2{
+                    font-size: 2vh;
+                }    
+            }
+            .min-win-conts {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 10px;
+    
+                div {
+                    width: 100px;
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 300px) {
+    .max-win {
+        flex-direction: column;
+        .max-win-img {
+           width: 150px;
+        }
+
+        .min-win-img {
+            .min-win-conts {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 5px;
+    
+                div {
+                    width: 100px;
+                }
+            }
+        }
+    }
+}
+
+// SUCESOS HISTORICOS
+
+@media (max-width: 1600px) {
+    .suc-hist {
+        .suc-cont{
+            .cont-tlt {
+                div {
+                    .tlt-suc {
+                        height: 60px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .suc-hist {
+        .suc-cont{
+            .cont-tlt {
+                scale: 1.0;
+                div {
+                    .tlt-suc {
+                        height: 70px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 800px) {
+    .suc-hist{
+        .suc-cont {
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .suc-hist {
+        h2 {
+            font-size: 2vh;
+        }
+        .suc-cont{
+            .cont-tlt {
+                div {
+                    .tlt-suc {
+                        height: 50px;
+                        h2 {
+                            font-size: 3vh;
+                        }
+                        p {
+                            padding: 20px 20px;
+                            font-size: 2vh;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+// GAMING
+
+// VIDEOS 
+
+@media (max-width: 1024px) {
+    .videos-int {
+        flex-direction: column;
+
+        .vid-gam{
+            iframe{
+                width: 700px;
+                height: 500px;
+            }
+        }
+
+        .vid-gam-2{
+            iframe{
+                width: 700px;
+                height: 500px;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .videos-int {
+        .vid-gam{
+            iframe{
+                width: 600px;
+                height: 400px;
+            }
+            h1{
+                font-size: 3vh;
+            }
+        }
+
+        .vid-gam-2{
+            iframe{
+                width: 600px;
+                height: 400px;
+            }
+            h2{
+                font-size: 3vh;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .videos-int {
+        .vid-gam{
+            iframe{
+                width: 400px;
+                height: 250px;
+            }
+        }
+
+        .vid-gam-2{
+            iframe{
+                width: 400px;
+                height: 250px;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .videos-int {
+        .vid-gam{
+            iframe{
+                width: 200px;
+                height: 100px;
+            }
+        }
+
+        .vid-gam-2{
+            iframe{
+                width: 200px;
+                height: 100px;
+            }
+        }
+    }
+}
+
+// MEJORES JUGADORES 
+
+@media (max-width: 800px) {
+    .best-players {
+        .best-tlt{
+            h2{
+                font-size: 2.5vh;
+            }
+        }
+        .player-cont {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-areas: 
+                ". p2 p2 ."
+                ". p1 p3 ."
+            ;
+            gap: 0px 20px;
+        }
+
+        .p1{
+            grid-area: p1;
+        }
+        .p2{
+            grid-area: p2;
+            padding-bottom: 0px;
+        }
+        .p3{
+            grid-area: p3;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .best-players {
+        .player-cont {
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-areas: 
+                "p2"
+                "p1"
+                "p3"
+            ;
+            gap: 0px;
+        }
+
+        .p1{
+            grid-area: p1;
+        }
+        .p2{
+            grid-area: p2;
+            padding-bottom: 0px;
+        }
+        .p3{
+            grid-area: p3;
+        }
+    }
+}
+
+// SECCION VARIADA
+
+@media (max-width: 1024px) {
+    .others-gaming {
+        flex-direction: column;
+        
+        .oth-vids {
+            padding-bottom: 10px;
+            div {
+                img {
+                    width: 600px;
+                }
+                h2 {
+                    font-size: 4vh;
+                    width: 600px;
+                    padding-top: 10px;
+                    padding-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .others-gaming {
+        .oth-vids {
+            div {
+                img{
+                    width: 400px;
+                }
+                h2 {
+                    width: 400px;
+                    font-size: 2vh;
+                }
+            }
+        }
+
+        .oth-sorteo {
+            h2 {
+                font-size: 3vh;
+            }
+            iframe {
+                width: 400px;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .others-gaming {
+        .oth-vids {
+            div {
+                img{
+                    width: 200px;
+                }
+                h2 {
+                    width: 200px;
+                }
+            }
+        }
+
+        .oth-sorteo {
+            iframe {
+                width: 200px;
+            }
+        }
+    }
+}
+
+
+
+
+// CONTACTO 
+
+@media (max-width: 600px) {
+    .form-contacto {
+        .formulario {
+            h1 {
+                text-align: center;
+                width: 400px;
+            }
+            .cont-form {
+                width: 400px;
+            }
+            div {
+                textarea {
+                    width: 340px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .form-contacto {
+        .formulario {
+            h1 {
+                text-align: center;
+                width: 200px;
+                font-size: 3vh;
+            }
+            .cont-form {
+                width: 200px;
+                div {
+                    input {
+                        width: 140px;
+                    }
+                    textarea {
+                        width: 140px;
+                    }
+                }
+            }
+        }
+    }
+}

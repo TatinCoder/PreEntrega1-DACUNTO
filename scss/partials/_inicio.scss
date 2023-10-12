@@ -1,0 +1,217 @@
+.introduccion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding-top: 10px;
+
+    /* Fondo de pantalla del primer scroll */
+    background-image: url(../img/fondo-index.jpg);
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+}
+
+.noticias {
+    background-color: rgba(61, 61, 61, 0.692);
+    position: relative;
+    width: 340px;
+    height: 800px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 2px rgba(43, 43, 43, 0.377);
+    margin: 40px 0px;
+    -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+	animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+
+    .imagenes {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        width: 300px;
+        height: 200px;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px 2px rgba(43, 43, 43, 0.377);
+
+        img {
+            width: 350px;
+            height: 250px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+    }
+}
+
+.titulo-img {
+    color: azure;
+    margin: 20px;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.overlay {
+    background-color: rgba(75, 75, 75, 0.603);
+    position: absolute;
+    overflow: hidden;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 0%;
+    transition: 0.5s;
+
+    p {
+        color: azure;
+        font-weight: 300;
+        font-size: 1rem;
+        padding-top: 5px; /* Correccion de texto para estar en la mitad */
+        text-align: center;
+    }
+}
+
+.imagenes:hover .overlay {
+    height: 15%;
+    cursor: pointer;
+}
+
+/* Hover del mouse para la imagen */
+.imagenes:hover img,
+.imagenes:focus img {
+    transform: scale(1.2);
+}
+
+
+/* ULTIMO CAMPEON */
+
+.ultimo-campeon {
+    position: relative;
+    overflow: hidden;
+    width: 750px;
+    height: 600px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 2px rgba(29, 29, 29, 0.534);
+    -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+	animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+
+    .ultimo-img{
+        .titulo-lc {
+            a {
+                h2 {
+                    background-color: rgba(32, 32, 32, 0.747);
+                    color: azure;
+                    position: absolute;
+                    text-align: center;
+                    width: 100%;
+                    left: 0px;
+                    bottom: -10px;
+                    padding-bottom: 20px;
+                    font-size: 2rem;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
+
+.ultimo-img img {
+    width: 750px;
+    height: 700px;
+    /* object-fit: cover; -- Lo saco porque se ve mas estirada la foto */
+    transition: 0.5s;
+}
+
+.ultimo-img:hover img,
+.ultimo-img:focus img {
+    transform: scale(1.2);
+}
+
+/* UBICACION */
+
+.ubicacion {
+    background-color: #d0e0eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding: 50px 0px;
+}
+
+.titulo-mapa {
+    padding-left: 15px;
+    padding-bottom: 20px;
+}
+
+.gmaps {
+    border-radius: 15px;
+}
+
+.mapa-texto {
+    text-align: center;
+    width: 400px;
+    transition: 0.7s;
+}
+
+.mapa-texto:hover {
+    transform: scale(1.08);
+}
+  
+
+.mapa-parrafo {
+    padding-top: 10px;
+    font-weight: 10;
+}
+
+/* VIDEOS */
+
+.videos {
+    background-color: #88abc2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 100px;
+    padding: 50px 0px;
+
+    .video-mun {
+        .video-titulo-1 {   
+            padding-bottom: 20px;
+        }
+        .video {
+            width: 560px;
+            height: 315px;
+            border-radius: 15px;
+        }
+        .video:hover {
+            animation-name: Videos-Fotos;
+            animation-duration: 6s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        iframe {
+            border-radius: 20px;
+        }
+    }
+
+    .sorteo-chp {
+        .video-titulo-2 {   
+            padding-bottom: 20px;
+        }
+        .video {
+            width: 560px;
+            height: 315px;
+            border-radius: 15px;
+            transition: 0.7s;
+        }
+        .video:hover {
+            animation-name: Videos-Fotos;
+            animation-duration: 6s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        iframe {
+            border-radius: 20px;
+        }
+    }
+}
