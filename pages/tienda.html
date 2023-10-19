@@ -30,14 +30,56 @@
             <a href="https://www.instagram.com/foressileague/"><img class="ig" src="../img/ig.png" alt="Logo de Instagram"></a>
         </div>
     </header>
-    <main id="tienda">
-        <div class="botonAgregar">
-            <button onclick='agregarProductos()'>Agregar Productos</button>
-        </div>
-        <div id="listProductos">
-
-        </div>
-    </main>
+    <div class="divisor">
+        <aside>
+            <nav>
+                <ul class="menu-botones">
+                    <li>
+                        <button id="todos" class="boton-menu boton-filtro active">Todos los productos</button>
+                    </li>
+                    <li>
+                        <button id="camiseta" class="boton-menu boton-filtro">Camisetas</button>
+                    </li>
+                    <li>
+                        <button id="botines" class="boton-menu boton-filtro">Botines</button>
+                    </li>
+                    <li>
+                        <button id="pantalones" class="boton-menu boton-filtro">Pantalones</button>
+                    </li>
+                    <li><a class="boton-menu boton-carrito" href="./carrito.html">Carrito: <span id="numero-carrito" class="numero-carrito">0</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <h2 id="titulo-principal" class="titulo-principal">Todos los productos</h2>
+            <div id="cont-productos" class="cont-productos">
+                <!-- <div class="list-producto">
+                    <img class="prod-img" src="../img/tienda/botines.jpg" alt="">
+                    <div class="prod-cont">
+                        <h3 class="prod-nombre">Producto 1</h3>
+                        <p class="prod-precio">$10000</p>
+                        <button class="prod-agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="list-producto">
+                    <img class="prod-img" src="../img/tienda/pantalones.jpg" alt="">
+                    <div class="prod-cont">
+                        <h3 class="prod-nombre">Producto 2</h3>
+                        <p class="prod-precio">$10000</p>
+                        <button class="prod-agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="list-producto">
+                    <img class="prod-img" src="../img/tienda/camiseta.jpg" alt="">
+                    <div class="prod-cont">
+                        <h3 class="prod-nombre">Producto 3</h3>
+                        <p class="prod-precio">$10000</p>
+                        <button class="prod-agregar">Agregar</button>
+                    </div>
+                </div> -->
+            </div>
+        </main>
+    </div>
     <!-- Footer -->
     <footer>
         <!-- Barra de Sponsors -->

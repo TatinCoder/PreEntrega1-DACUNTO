@@ -1,190 +1,196 @@
-// FORMULARIO EN CONTACTO
-class Usuario {
-    constructor(nombre, mail, motivo) {
-        this.nombre = nombre;
-        this.mail = mail;
-        this.motivo = motivo;
-    }
+// Agregamos los productos que querramos en la pagina
+const productos = [ 
+    {
+        id: "botines-01",
+        titulo:"Botin 1",
+        imagen: "../img/tienda/botines.jpg",
+        categoria: {
+            nombre: "Botines",
+            id: "botines"
+        },
+        precio: 30000
+    },
+    {
+        id: "botines-02",
+        titulo:"Botin 2",
+        imagen: "../img/tienda/botines2.jpg",
+        categoria: {
+            nombre: "Botines",
+            id: "botines"
+        },
+        precio: 35000
+    },
+    {
+        id: "botines-03",
+        titulo:"Botin 3",
+        imagen: "../img/tienda/botines3.jpg",
+        categoria: {
+            nombre: "Botines",
+            id: "botines"
+        },
+        precio: 40000
+    }, 
+    {
+        id: "camiseta-01",
+        titulo:"Camiseta 1",
+        imagen: "../img/tienda/camiseta.jpg",
+        categoria: {
+            nombre: "Camiseta",
+            id: "camiseta"
+        },
+        precio: 10000
+    },
+    {
+        id: "camiseta-02",
+        titulo:"Camiseta 2",
+        imagen: "../img/tienda/camiseta2.jpg",
+        categoria: {
+            nombre: "Camiseta",
+            id: "camiseta"
+        },
+        precio: 15000
+    },
+    {
+        id: "camiseta-03",
+        titulo:"Camiseta 3",
+        imagen: "../img/tienda/camiseta3.jpg",
+        categoria: {
+            nombre: "Camiseta",
+            id: "camiseta"
+        },
+        precio: 20000
+    }, 
+    {
+        id: "pantalones-01",
+        titulo:"Pantalones 1",
+        imagen: "../img/tienda/pantalones.jpg",
+        categoria: {
+            nombre: "Pantalones",
+            id: "pantalones"
+        },
+        precio: 20000
+    },
+    {
+        id: "pantalones-02",
+        titulo:"Pantalones 2",
+        imagen: "../img/tienda/pantalones2.jpg",
+        categoria: {
+            nombre: "Pantalones",
+            id: "pantalones"
+        },
+        precio: 25000
+    },
+    {
+        id: "pantalones-03",
+        titulo:"Pantalones 3",
+        imagen: "../img/tienda/pantalones3.jpg",
+        categoria: {
+            nombre: "Pantalones",
+            id: "pantalones"
+        },
+        precio: 30000
+    },
+];
+
+// Elementos del DOM
+const contProductos = document.querySelector("#cont-productos");
+const botonesFiltro = document.querySelectorAll(".boton-filtro");
+const tituloPrincipal = document.querySelector("#titulo-principal");
+let botonesAgregar = document.querySelectorAll(".prod-agregar");
+const numCarrito = document.querySelector("#numero-carrito");
+
+function cargarProductos(productosElegidos) {
+
+    // Hacemos esta funcion para que cuando apliquemos un filtro no se agreguen al HTML, vaciandolo
+    contProductos.innerHTML = "";
+
+    productosElegidos.forEach(producto => {
+
+        const div = document.createElement("div");
+        div.classList.add("list-producto");
+        div.innerHTML= `
+            <img class="prod-img" src="${producto.imagen}" alt="${producto.titulo}">
+            <div class="prod-cont">
+                <h3 class="prod-nombre">${producto.titulo}</h3>
+                <p class="prod-precio">$${producto.precio}</p>
+                <button class="prod-agregar" id="${producto.id}">Agregar</button>
+            </div>
+        `;
+
+        contProductos.append(div)
+    })
+
+    cambiarBotonesAgregar();
 }
 
-// Variables para el DOM
-let arrayUsuarios = [];
-let foressiForm = document.querySelector('#formulario');
-let formNombre = document.querySelector('#fmNombre');
+cargarProductos(productos);
 
-let nombreUser = formulario.querySelector('.fmNombre').value;
-let mailUser = formulario.querySelector('.fmMail').value;
-let motivoUser = formulario.querySelector('.fmMotivo').value;
+botonesFiltro.forEach(boton => {
+    boton.addEventListener("click", (e) => {
 
-let userIngresado = document.querySelector('#userIngresado');
-let mostrarTodos = document.querySelector('#mostrarTodos');
-let parrafos = mostrarTodos.getElementsByTagName("p");
+        // Sacamos todos los active para solo poner el que estamos clickeando
+        botonesFiltro.forEach(boton => boton.classList.remove("active"));
 
-let chequeo = false;
-foressiForm.addEventListener("submit", agregarUsers);
-btnMostrar.addEventListener('click', MostrarUsers);
+        // Cuando clickeamos se queda en active
+        e.currentTarget.classList.add("active");
 
-// Focus en el ingreso del Nombre
-formNombre.focus();
+        if (e.currentTarget.id != "todos"){
+            // Filtramos segun la ID del producto
+            const productoFiltro = productos.find(producto => producto.categoria.id === e.currentTarget.id);
+            tituloPrincipal.innerText = productoFiltro.categoria.nombre;
 
-// Funciones
-function checkForm() {
-    nombreUser = formulario.querySelector('.fmNombre').value;
-    mailUser = formulario.querySelector('.fmMail').value;
-    motivoUser = formulario.querySelector('.fmMotivo').value;
-    console.log(nombreUser);
-    console.log(mailUser);
-    console.log(motivoUser);
-    if (nombreUser == '' || mailUser == '' || motivoUser == '' ) {
-        alert("Tenes que completar todo para registrarte.");
-        formNombre.focus();
-        chequeo = false;
-    } else {
-        chequeo = true;
-    }
-}
-
-function agregarUsers(e) {
-    e.preventDefault();
-    checkForm();
-    if (chequeo == true) {
-        let confirmacionUser = confirm("Queres registrarte como Miembro?");
-        if (confirmacionUser == true) {
-            let formulario = e.target;
-            arrayUsuarios.push(new Usuario(nombreUser, mailUser, motivoUser));
+            const productosSelec = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
+            cargarProductos(productosSelec);
         } else {
-            alert('Usuario no registrado');
+            tituloPrincipal.innerText = "Todos los productos";
+            cargarProductos(productos);
         }
+    })
+});
 
-        formulario.querySelector('.fmNombre').value = '';
-        formulario.querySelector('.fmMail').value = '';
-        formulario.querySelector('.fmMotivo').value = '';
-        userIngresado.innetHTML = '';
-        
-        AddDom();
-        formNombre.focus();
+function cambiarBotonesAgregar() {
+    // Que vuelva a buscar en el dom si existen los botones
+    botonesAgregar = document.querySelectorAll(".prod-agregar");
+
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener("click", addCarrito);
+    });
+
+}
+
+let prodAgregados;
+
+// Chequeamos si tenemos algo guardado del a tienda
+let prodAgregadosGuardados = localStorage.getItem("productos-en-el-carrito");
+if (prodAgregadosGuardados) {
+    prodAgregados = JSON.parse(prodAgregadosGuardados);
+    // Mantenemos el numero de carrito en la tienda
+    cambiarNumCarrito();
+} else {
+    prodAgregados = [];
+}
+
+function addCarrito(e) {
+    const idBoton = e.currentTarget.id;
+    const prodAgregado = productos.find(producto => producto.id === idBoton);
+
+    // Con some podemos ver si ya existe
+    if(prodAgregados.some(producto => producto.id === idBoton)) {
+        const index = prodAgregados.findIndex(producto => producto.id === idBoton);
+        // Sumamos la cantidad segun lo que estemos tocando el boton +1
+        prodAgregados[index].cantidad++;
     } else {
-        formNombre.focus();
+        prodAgregado.cantidad = 1;
+        prodAgregados.push(prodAgregado);
     }
+
+    cambiarNumCarrito();
+
+    // Guardamos los array en el local storage
+    localStorage.setItem("productos-en-el-carrito", JSON.stringify(prodAgregados));
 }
 
-function AddDom() {
-    userIngresado.innerHTML = `<div class="usuariosform"><h3> Miembro Registrado:</h3>
-    <p> Nombre: ${nombreUser}</p>
-    <p> Mail: ${mailUser}</p>
-    <p> Motivo: ${motivoUser}</p></div>
-    `;
-}
-
-function MostrarUsers(e) {
-    e.preventDefault();
-    let i = 0;
-    mostrarTodos.innerHTML = `<div class="todosform"><h3> Todos los miembros Registrados:</h3></div>`;
-    for (const usuario of arrayUsuarios) {
-        mostrarTodos.innerHTML += `<div class="todosform"><p> Nombre: ${nombreUser}</p>
-        <p> Mail: ${mailUser}</p>
-        <p> Motivo: ${motivoUser}</p></div>
-        `;
-    }
-}
-
-
-// AGREGAR PRODUCTOS EN LA TIENDA
-// Variables para calculo
-let a = 0;
-let monto = 0;
-let b = 0;
-let precioFinal = 0;
-
-// Agregar productos
-function agregarProductos() {
-    class Producto {
-        constructor(nombre,precio,preciofinal,cantidad) {
-            this.nombre = nombre;
-            this.precio = precio;
-            this.preciofinal = preciofinal;
-            this.cantidad = cantidad;
-        }
-    }
-
-    var arrayAddProductos = [];
-    do {
-        var check = prompt("Ingresa el nombre del producto. ('Listo' para terminar de agregar)").toUpperCase();
-        if (check == 'LISTO') {
-            break;
-        }
-        else{
-            NombreProducto = check;
-            let PrecioProducto = prompt("Ingrese un precio para el producto");
-            PrecioFinal = calculoAdicional(PrecioProducto);
-            var CantidadProducto = prompt("Ingrese el Stock del producto");  
-
-            console.log("Nombre de producto: " + NombreProducto);
-            console.log("Precio del Producto: $" + PrecioProducto);
-            console.log("Precio Final: $" + PrecioFinal);
-            console.log("Cantidad: " + CantidadProducto);
-            // Pusheamos todo al array
-            arrayAddProductos.push(new Producto(NombreProducto, PrecioProducto, PrecioFinal, CantidadProducto));
-        }
-    }
-    // Imprimimos la lista de productos
-    while (check != 'LISTO')
-        console.log(arrayAddProductos);
-
-        // Printeamos en el HTML los productos
-    for (let producto of arrayAddProductos) {
-        let contenedor = document.createElement("div");
-        contenedor.innerHTML= `<h3>Nombre: ${producto.nombre}</h3>
-        <p>Precio: $${producto.precio}</p>
-        <p>Precio Final: $${producto.preciofinal}</p>
-        <p>Precio Cantidad: ${producto.cantidad}</p>
-        `;
-        document.main.appendChild(contenedor);
-        console.log(Producto.nombre);
-        console.log(Producto.precio);
-        console.log(Producto.preciofinal);
-        console.log(Producto.cantidad);
-    }
-
-    // Sin stock -- Basicamente cantidad = 0
-    var SinStock = arrayAddProductos.filter(producto => producto.cantidad == 0 );
-    console.log(SinStock);
-    for (var producto of SinStock) {
-        document.write("<h2 class='titulo-nombre-ss'>Productos sin Stock: </h2>");
-        contenedor.innerHTML = `<h3>Nombre: ${producto.nombre}</h3>
-            <p>Precio: $${producto.precio}</p>
-            <p>Precio Final: $${producto.preciofinal}</p>
-            <p>Precio Cantidad: ${producto.cantidad}</p>
-        `;
-        document.body.appendChild(contenedor);
-    }
-}
-
-// FUNCIONES
-function calculoAdicional(costo) {
-    let cuenta = 0;
-    let pasaje = 0;
-    let resultado = 0;
-    
-    // Calculamos el 10% del producto
-    cuenta = costo / 10;
-    // Pasamos el precio a numero
-    pasaje = costo * 1;
-
-    // Sumamos para el resultado final
-    resultado = pasaje + cuenta;
-
-    // Devolvemos el resultado de la division
-    return resultado;
-}
-
-function calculoDescuento(monto, b) {
-    let desc = 0;
-    let caldesc = 0;
-
-    // Aplicamos el descuento al precio total en caso de que haya cupon.
-    caldesc = monto * b;
-    desc = monto - caldesc;
-
-    return desc;
+function cambiarNumCarrito() {
+    let newNumCarrito = prodAgregados.reduce((acc, producto) => acc + producto.cantidad, 0);
+    numCarrito.innerText = newNumCarrito;
 }

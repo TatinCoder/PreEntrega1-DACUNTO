@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito Foressi</title>
+
+    <link rel="stylesheet" href="../scss/style.css">
+</head>
+<body>
+    <div class="divisor">
+        <aside>
+            <nav>
+                <ul class="menu-botones">
+                    <li>
+                        <a class="boton-menu boton-volver" href="../pages/tienda.html">Volver a la tienda</a>
+                    </li>
+                    <li><a class="boton-menu boton-carrito active" href="./carrito.html">Carrito </a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <h2 class="titulo-principal">Carrito</h2>
+            <div class="list-carrito">
+                <p id="carrito-vacio" class="carrito-vacio">Carrito Vacio</p>
+                <div id="carrito-productos" class="carrito-productos inhabilitado">
+
+                    <!-- <div class="carrito-producto">
+
+                        <img class="carrito-producto-img" src="../img/tienda/botines.jpg" alt="">
+                        <div class="carrito-producto-nombre">
+                            <h2>Titulo 1</h2>
+                            <h3>Producto 1</h3>
+                        </div>
+                        <div class="carrito-producto-cantidad">
+                            <h2>Cantidad</h2>
+                            <h3>1</h3>
+                        </div>
+                        <div class="carrito-producto-precio">
+                            <h2>Precio</h2>
+                            <h3>$10000</h3>
+                        </div>
+                        <div class="carrito-producto-total">
+                            <h2>Total:</h2>
+                            <h3>$10000</h3>
+                        </div>
+                        <button class="carrito-producto-eliminar">Borrar</button>
+
+                    </div>
+                    <div class="carrito-producto">
+
+                        <img class="carrito-producto-img" src="../img/tienda/camiseta.jpg" alt="">
+                        <div class="carrito-producto-nombre">
+                            <h2>Titulo 2</h2>
+                            <h3>Producto 2</h3>
+                        </div>
+                        <div class="carrito-producto-cantidad">
+                            <h2>Cantidad</h2>
+                            <h3>1</h3>
+                        </div>
+                        <div class="carrito-producto-precio">
+                            <h2>Precio</h2>
+                            <h3>$20000</h3>
+                        </div>
+                        <div class="carrito-producto-total">
+                            <h2>Total:</h2>
+                            <h3>$20000</h3>
+                        </div>
+                        <button class="carrito-producto-eliminar">Borrar</button>
+
+                    </div>  -->
+
+                </div>
+
+                <div id="carrito-botones" class="carrito-botones inhabilitado">
+                    <div class="carrito-botones-izquierda">
+                        <button id="carrito-botones-izquierda-vaciar" class="carrito-botones-izquierda-vaciar">Vaciar Carrito</button>
+                    </div>
+                    <div class="carrito-botones-derecha">
+                        <div class="carrito-botones-derecha-total">
+                            <p>Total:</p>
+                            <p id="total">$1000</p>
+                        </div>
+                        <button id="carrito-botones-derecha-comprar" class="carrito-botones-derecha-comprar">Comprar Ahora</button>
+                    </div>
+                </div>
+
+                <p id="compra-hecha" class="compra-hecha inhabilitado">Gracias por Comprar!</p>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Import de JS -->
+    <script src="../js/carrito.js"></script>
+</body>
+</html>
