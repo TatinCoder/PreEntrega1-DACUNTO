@@ -92,12 +92,6 @@ const productos = [
     },
 ];
 
-fetch("../js/productos.json")
-    .then(response => response.json())
-    .then(data =>{
-})
-
-
 // Elementos del DOM
 const contProductos = document.querySelector("#cont-productos");
 const botonesFiltro = document.querySelectorAll(".boton-filtro");
@@ -128,14 +122,6 @@ function cargarProductos(productosElegidos) {
 
     cambiarBotonesAgregar();
 }
-$(() => { //Esto se ejecuta una vez termina de cargar todo el DOM, es algo adicional, no necesario.
-    $.getJSON("data/propiedades.json", (respuesta) => { //Obtenemos los datos desde un JSON en forma estática. Es una petición asíncrona.
-        // GUARDAMOS LA RESPUESTA EN UNA VARIABLE DENTRO DE LISTATAREASJSON.
-        listaPropiedadesJSON = respuesta;
-        console.log(listaPropiedadesJSON);
-
-    })
-})
 
 cargarProductos(productos);
 
