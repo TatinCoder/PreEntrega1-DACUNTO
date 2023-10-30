@@ -36,7 +36,12 @@ function checkForm() {
     console.log(mailUser);
     console.log(motivoUser);
     if (nombreUser == '' || mailUser == '' || motivoUser == '' ) {
-        alert("Tenes que completar todo para registrarte.");
+        Swal.fire({
+            title: 'Registro',
+            text: 'Tenes que completar todo para registrarte.',
+            icon: 'warning',
+            confirmButtonText: 'Aceptar',
+          })
         formNombre.focus();
         chequeo = false;
     } else {
@@ -47,15 +52,20 @@ function checkForm() {
 function agregarUsers(e) {
     e.preventDefault();
     checkForm();
-    if (chequeo == true) {
-        let confirmacionUser = confirm("Queres registrarte como Miembro?");
-        if (confirmacionUser == true) {
+    if (chequeo == true) {   
+    Swal.fire({
+        title: 'Confirmar Registro',
+        text: '¿Queres registrarte como Miembro?',
+        icon: 'question',
+        confirmButtonText: 'Aceptar',
+        showCancelButton: true,
+        cancelButtonText: 'Rechazar'
+      }).then((resultado) => {
+        if(resultado.isConfirmed) {
             let formulario = e.target;
             arrayUsuarios.push(new Usuario(nombreUser, mailUser, motivoUser));
-        } else {
-            alert('Usuario no registrado');
         }
-
+      })
         formulario.querySelector('.fmNombre').value = '';
         formulario.querySelector('.fmMail').value = '';
         formulario.querySelector('.fmMotivo').value = '';
@@ -87,4 +97,35 @@ function MostrarUsers(e) {
         `;
     }
 }
+
+const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Enviando...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_5jvdc2u';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Confirmar';
+      Swal.fire({
+          title: 'Registro',
+          text: 'Registro Completado!',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+        })
+    }, (err) => {
+      btn.value = 'Confirmar';
+      Swal.fire({
+          title: 'Registro',
+          text: 'Error Al Registrarse',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        })
+    });
+});
 

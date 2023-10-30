@@ -91,9 +91,20 @@ function deleteCarrito(e) {
 botonVaciar.addEventListener("click", cleanCarrito);
 function cleanCarrito() {
     prodAgregados.length = 0;
-    // Vaciamos todo en el local storage
-    localStorage.setItem("productos-en-el-carrito", JSON.stringify(prodAgregados));
-    cargarProductosEnCarrito();
+    Swal.fire({
+        title: 'Eliminar carrito',
+        text: '¿Queres eliminar todos los productos?',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        showCancelButton: true,
+        cancelButtonText: 'Rechazar'
+      }).then((resultado) => {
+        if(resultado.isConfirmed) {
+            // Vaciamos todo en el local storage
+            localStorage.setItem("productos-en-el-carrito", JSON.stringify(prodAgregados));
+            cargarProductosEnCarrito();
+        }
+      })
 }
 
 function updateTotal() {
@@ -111,4 +122,11 @@ function comprarCarrito() {
     contCarritoProducto.classList.add("inhabilitado");
     contCarritoBotones.classList.add("inhabilitado");
     contCompraHecha.classList.remove("inhabilitado");
+
+    Swal.fire({
+        title: 'Compra Realizada',
+        text: '¡Gracias por comprar!',
+        icon: 'success',
+        confirmButtonText: 'Terminar',
+      })
 }
